@@ -1,13 +1,13 @@
 <?php
 function my_autoloader($class_name) {
-	include_once 'classes/' . $class_name . '.class.php';
+	include_once __DIR__.'/../classes/' . $class_name . '.class.php';
 }
 /**
  * test case.
  */
 class ClassTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
-		spl_autoload_REGister ( 'my_autoloader' );
+            spl_autoload_register( 'my_autoloader' );
 	}
 	public function test_crear_un_objecto_de_una_clase_y_acceder_a_un_metodo() {
 		$clase = new Clase ();
